@@ -229,7 +229,7 @@ public class DualityOInterface extends DualityInterface implements IAEFluidInven
                         final ItemStack added = fad.addFlask(is);
                         this.addToSendList(added);
                         ItemStack emptyVolumetricFlask = new ItemStack(is.getItem(), is.getCount() - added.getCount());
-                        emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
+//                        emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
                         InventoryAdaptor iad = new AdaptorItemHandler(this.getInternalInventory());
                         iad.addItems(emptyVolumetricFlask);
                     } else if (ad != null) {
@@ -326,7 +326,7 @@ public class DualityOInterface extends DualityInterface implements IAEFluidInven
                     if (fad != null) {
                         final ItemStack result = fad.addFlask(whatToSend);
                         ItemStack emptyVolumetricFlask = new ItemStack(whatToSend.getItem(), whatToSend.getCount() - result.getCount());
-                        emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
+//                        emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
                         InventoryAdaptor iad = new AdaptorItemHandler(this.getInternalInventory());
                         iad.addItems(emptyVolumetricFlask);
                         if (result.isEmpty()) {
@@ -413,7 +413,7 @@ public class DualityOInterface extends DualityInterface implements IAEFluidInven
                 return false;
             }
             ItemStack emptyVolumetricFlask = new ItemStack(is.getItem(), is.getCount());
-            emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
+//            emptyVolumetricFlask.setTagCompound(new NBTTagCompound());
             InventoryAdaptor iad = new AdaptorItemHandler(this.getInternalInventory());
             if (!iad.simulateAdd(emptyVolumetricFlask).isEmpty()) {
                 return false;
@@ -572,7 +572,7 @@ public class DualityOInterface extends DualityInterface implements IAEFluidInven
                             currentItemStack.setCount(leftFilledCount);
                         }
                         IAEFluidStack left = aeFluidStack.copy();
-                        long leftVolume = currentVolume - capacity * filledCount;
+                        long leftVolume = currentVolume - (long) capacity * filledCount;
                         if (leftVolume == 0) {
                             this.tanks.setFluidInSlot(0, null);
                         } else {

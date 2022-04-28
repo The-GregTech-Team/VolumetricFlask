@@ -53,7 +53,7 @@ public class ItemVolumetricFlask extends Item {
             return;
         }
         final ItemStack stack = new ItemStack(this);
-        stack.setTagCompound(new NBTTagCompound());
+//        stack.setTagCompound(new NBTTagCompound());
         items.add(stack);
     }
 

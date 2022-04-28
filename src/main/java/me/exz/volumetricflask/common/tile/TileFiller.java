@@ -78,7 +78,7 @@ public class TileFiller extends AENetworkTile implements IGridHost, IGridBlock, 
                 List<ICraftingPatternDetails> craftingPatternItemList = new ArrayList<>();
                 for (ItemVolumetricFlask flask : VOLUMETRIC_FLASKS) {
                     ItemStack empty = new ItemStack(flask, 1);
-                    empty.setTagCompound(new NBTTagCompound());
+//                    empty.setTagCompound(new NBTTagCompound());
                     ItemStack filled = new ItemStack(flask, 1);
                     IFluidHandler fluidHandler = filled.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
                     int capacity = flask.capacity;
@@ -86,10 +86,10 @@ public class TileFiller extends AENetworkTile implements IGridHost, IGridBlock, 
                     ItemStack pattern = getPattern(empty, filled);
                     ICraftingPatternItem patter = (ICraftingPatternItem) pattern.getItem();
                     ICraftingPatternDetails details = patter.getPatternForItem(pattern, world);
-                    details.setPriority(-1);
                     if (details == null) {
                         continue;
                     }
+                    details.setPriority(-1);
                     craftingPatternItemList.add(details);
                     fluidCraftingPatternDetailsListMapping.put(fluid, craftingPatternItemList);
                 }
